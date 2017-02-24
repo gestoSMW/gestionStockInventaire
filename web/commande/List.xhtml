@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="List"/></h1>
+                <p:dataTable id="dataListComd" value="#{commandeControler.items}" var="item">
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="DateCommande"/>
+                        </f:facet>
+                        <h:outputText value="#{item.dateCommande}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="MontantTotal"/>
+                        </f:facet>
+                        <h:outputText value="#{item.montantTotal}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Fournisseur"/>
+                        </f:facet>
+                        <h:outputText value="#{item.fournisseur}"/>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="Action"/>
+                        </f:facet>
+                        <p:commandButton actionListener="#{commandeControler.delete(item)}" update="dataListComd" value="SUPRIMER"/>
+                        <p:commandButton action="#{commandeControler.update(item)}" update="dataListComd" value="MODIFIER"/>
+                    </p:column>
+                </p:dataTable>
+                <p:commandButton action="/commande/Create" value="CREE"></p:commandButton>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+
