@@ -26,7 +26,7 @@ public class Fournisseur implements Serializable {
     private String nom;
     private String prenom;
     private String email;
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "fournisseur")
     private List<Commande> commandes;
 
     public String getCin() {
@@ -68,6 +68,7 @@ public class Fournisseur implements Serializable {
     public void setCommandes(List<Commande> commandes) {
         this.commandes = commandes;
     }
+
 
     @Override
     public int hashCode() {

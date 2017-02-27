@@ -19,9 +19,7 @@ public class CommandeFacade extends AbstractFacade<Commande> {
 
     @PersistenceContext(unitName = "gestionStockInventairePU")
     private EntityManager em;
-    
 
-    
     @Override
     protected EntityManager getEntityManager() {
         return em;
@@ -31,4 +29,16 @@ public class CommandeFacade extends AbstractFacade<Commande> {
         super(Commande.class);
     }
     
+    public void clone(Commande commandeSource,Commande commandeDestination){
+        commandeDestination.setId(commandeSource.getId());
+        commandeDestination.setDateCommande(commandeSource.getDateCommande());
+        commandeDestination.setMontantTotal(commandeSource.getMontantTotal());
+     }
+    
+    public Commande clone(Commande commande){
+        Commande cloned=new Commande();
+        clone(commande, cloned);
+        return cloned;
+    }
+             
 }

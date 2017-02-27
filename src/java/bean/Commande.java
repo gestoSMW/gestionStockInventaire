@@ -68,6 +68,7 @@ public class Commande implements Serializable {
         this.fournisseur = fournisseur;
     }
 
+
     public List<CommandeItem> getCommandeItems() {
         return commandeItems;
     }
@@ -76,6 +77,7 @@ public class Commande implements Serializable {
         this.commandeItems = commandeItems;
     }
 
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -102,7 +104,7 @@ public class Commande implements Serializable {
 
     @Override
     public String toString() {
-        return "Commande{" + "id=" + id + ", dateCommande=" + dateCommande + ", montantTotal=" + montantTotal + ", fournisseur=" + fournisseur + ", commandeItems=" + commandeItems + '}';
+        return "Commande" + id +"";
     }
     
     
