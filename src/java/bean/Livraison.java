@@ -21,8 +21,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Livraison implements Serializable {
 
-    @OneToMany(mappedBy = "livraison")
-    private List<LivraisonItem> livraisonItems;
+    
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -30,6 +29,8 @@ public class Livraison implements Serializable {
     private Long id;
     private Commande commande;
     private List<Stock> stocks;
+    @OneToMany(mappedBy = "livraison")
+    private List<LivraisonItem> livraisonItems;
 
     public List<LivraisonItem> getLivraisonItems() {
         return livraisonItems;
